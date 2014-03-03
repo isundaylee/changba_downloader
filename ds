@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+require_relative 'changba_downloader'
+
+output_dir = File.expand_path('~/Music/Changba')
+
+unless ARGV.length == 2 || ARGV.length == 1
+  puts 'Usage: ds url [output_dir]'
+  exit
+end
+
+url = ARGV[0]
+output_dir = ARGV[1] if ARGV.length == 2
+
+ChangbaDownloader.download_song(url, output_dir)
